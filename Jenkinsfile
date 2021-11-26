@@ -1,22 +1,20 @@
-node {
-       stage('git clone') {
-        git credentialsId: '1d29b97f-bc55-4634-9022-4b50dfb50a45', url: 'https://github.com/ksproapp/ks.git'
-    }
-	stage('Maven Clean') {
-        sh 'mvn clean'
-    }
-	stage('Maven validate') {
-        sh 'mvn validate'
-    }
+node { stage('git clone') { 
 	
-	stage('Maven Test') {
-        sh 'mvn test'
+		git branch: 'main', credentialsId: '08da8eb2-1d7f-4ad2-9e75-37670a78f0d7', url: 'https://github.com/manavapati/sep-jai.git'
     }
-	stage('Maven Package') {
-        sh 'mvn package'
+    stage('Maven clean') {
+        sh 'maven clean'
     }
-	stage('Maven Deploy') {
-        sh 'mvn deploy'
+    stage('Maven validate') {
+        sh 'maven validate'
+    }
+	stage('Maven test') {
+        sh 'maven test'
+    }
+	stage('Maven package') {
+        sh 'maven package'
+    }
+	stage('Maven deploy') {
+        sh 'maven deploy'
     }
 }
-
