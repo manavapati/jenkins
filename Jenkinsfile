@@ -9,7 +9,7 @@ node { stage('git clone') {
         sh 'mvn validate'
     }
 	stage('SonarQube'){	
-	sh 'mvn sonar:sonar -Dsonar.host.url=http://34.125.73.121:9000 -Dsonar.login=5f52606c7ceff14f29167af154fd7da5065ed44e'
+	sh 'mvn sonar:sonar -Dsonar.host.url=http://http://34.125.200.25/:9000 -Dsonar.login=5f52606c7ceff14f29167af154fd7da5065ed44e'
 	}
 	stage('Maven test') {
         sh 'mvn test'
